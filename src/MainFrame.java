@@ -20,10 +20,16 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 	MainPanel panel;
 	Sound sound;
 	
-	JLabel lb;
-	JLabel lb2;
-	JButton btnrenew,btnlast,btnnext,btnchoose,btnfirst,btnover,btnmuc,btnback;
-	JComboBox jc=new JComboBox();
+	JLabel label;
+	JButton button_renew;
+	JButton button_last;
+	JButton button_next;
+	JButton button_choose;
+	JButton button_first;
+	JButton button_over;
+	JButton button_music;
+	JButton button_back;
+	JComboBox comBoBox=new JComboBox();
 	MenuItem renew=new MenuItem("    重新开始");
 	MenuItem back=new MenuItem("    悔一步");
 	MenuItem last=new MenuItem("    上一关");
@@ -40,16 +46,16 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 	
 	public MainFrame()
 	{
-		super("推箱子v2.0");
-		setSize(1024,1024);
+		super();
+		setSize(720,720);
 		setVisible(true);
 		setResizable(false);
 		setLocation(300,20);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		Container cont=getContentPane();
-		cont.setLayout(null);
-		cont.setBackground(Color.black);
+		Container container=getContentPane();
+		container.setLayout(null);
+		container.setBackground(Color.black);
 		
 		Menu choice=new Menu("    选项");
 		choice.add(renew);
@@ -66,12 +72,12 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		exit.addActionListener(this);
 		back.addActionListener(this);
 		
-		Menu setmuc=new Menu("    设置音乐");
-		setmuc.add(nor);
-		setmuc.add(qin);
-		setmuc.add(po);
-		setmuc.add(guang);
-		setmuc.add(eye);
+		Menu setMusic=new Menu("    设置音乐");
+		setMusic.add(nor);
+		setMusic.add(qin);
+		setMusic.add(po);
+		setMusic.add(guang);
+		setMusic.add(eye);
 		nor.addActionListener(this);
 		qin.addActionListener(this);
 		po.addActionListener(this);
@@ -84,59 +90,56 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		
 		MenuBar bar=new MenuBar();
 		bar.add(choice);
-		bar.add(setmuc);
+		bar.add(setMusic);
 		bar.add(help);
 		setMenuBar(bar);                                        
 
 		nor.setEnabled(false);
-//		lb=new JLabel("JAVA推箱子v2.0版！！！",SwingConstants.CENTER);
-		lb2=new JLabel("更换音乐",SwingConstants.CENTER);
-//		add(lb);
-		add(lb2);
-//		lb.setBounds(100,20,400,20);
-//		lb.setForeground(Color.white);
-		lb2.setBounds(625,500,55,20);
-		lb2.setForeground(Color.white);
-		btnrenew=new JButton("重来");
-		btnback=new JButton("悔一步");
-		btnlast=new JButton("上一关");
-		btnnext=new JButton("下一关");
-		btnchoose=new JButton("选关");
-		btnfirst=new JButton("第１关");
-		btnover=new JButton("最终关");
-		btnmuc=new JButton("音乐关");
-		add(btnrenew);
-		add(btnlast);
-		add(btnnext);
-		add(btnchoose);
-		add(btnfirst);
-		add(btnover);
-		add(btnmuc);
-		add(btnback);
-		btnrenew.setBounds(625,100,80,30);
-		btnrenew.addActionListener(this);
-		btnback.setBounds(625,150,80,30);
-		btnback.addActionListener(this);
-		btnfirst.setBounds(625,200,80,30);
-		btnfirst.addActionListener(this);
-		btnlast.setBounds(625,250,80,30);
-		btnlast.addActionListener(this);
-		btnnext.setBounds(625,300,80,30);
-		btnnext.addActionListener(this);
-		btnover.setBounds(625,350,80,30);
-		btnover.addActionListener(this);
-		btnchoose.setBounds(625,400,80,30);
-		btnchoose.addActionListener(this);
-		btnmuc.setBounds(625,450,80,30);
-		btnmuc.addActionListener(this);
-		jc.setBounds(625,530,80,20);
-		jc.addItem("默认");
-		jc.addItem("琴萧合奏");
-		jc.addItem("泡泡堂");
-		jc.addItem("灌篮高手");
-		jc.addItem("eyes on me");
-		jc.addItemListener(this);
-		cont.add(jc);
+
+		label=new JLabel("更换音乐",SwingConstants.CENTER);
+		add(label);
+		label.setBounds(625,500,55,20);
+		label.setForeground(Color.white);
+		button_renew=new JButton("重来");
+		button_back=new JButton("悔一步");
+		button_last=new JButton("上一关");
+		button_next=new JButton("下一关");
+		button_choose=new JButton("选关");
+		button_first=new JButton("第１关");
+		button_over=new JButton("最终关");
+		button_music=new JButton("音乐关");
+		add(button_renew);
+		add(button_last);
+		add(button_next);
+		add(button_choose);
+		add(button_first);
+		add(button_over);
+		add(button_music);
+		add(button_back);
+		button_renew.setBounds(625,100,80,30);
+		button_renew.addActionListener(this);
+		button_back.setBounds(625,150,80,30);
+		button_back.addActionListener(this);
+		button_first.setBounds(625,200,80,30);
+		button_first.addActionListener(this);
+		button_last.setBounds(625,250,80,30);
+		button_last.addActionListener(this);
+		button_next.setBounds(625,300,80,30);
+		button_next.addActionListener(this);
+		button_over.setBounds(625,350,80,30);
+		button_over.addActionListener(this);
+		button_choose.setBounds(625,400,80,30);
+		button_choose.addActionListener(this);
+		button_music.setBounds(625,450,80,30);
+		button_music.addActionListener(this);
+		comBoBox.setBounds(625,530,80,20);
+		comBoBox.addItem("默认");
+		comBoBox.addItem("琴萧合奏");
+		comBoBox.addItem("泡泡堂");
+		comBoBox.addItem("灌篮高手");
+		comBoBox.addItem("eyes on me");
+		comBoBox.addItemListener(this);
+		container.add(comBoBox);
 		sound=new Sound();
 		sound.loadSound();
 		panel=new MainPanel();
@@ -152,14 +155,14 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 	public void itemStateChanged(ItemEvent arg0)
 	{
 		// TODO Auto-generated method stub
-		int no=jc.getSelectedIndex();
+		int no=comBoBox.getSelectedIndex();
 		switch(no)
 		{
 			case 0:sound.setMusic("nor.mid");
 					 if(sound.isplay())
 					 sound.mystop();
 					 sound.loadSound();
-					 btnmuc.setLabel("音乐关");
+					 button_music.setLabel("音乐关");
 					 nor.setEnabled(false);
 					 qin.setEnabled(true);
 					 guang.setEnabled(true);
@@ -169,7 +172,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 					 if(sound.isplay())
 					 sound.mystop();
 					 sound.loadSound();
-					 btnmuc.setLabel("音乐关");
+					 button_music.setLabel("音乐关");
 					 nor.setEnabled(true);
 					 qin.setEnabled(false);
 					 guang.setEnabled(true);
@@ -179,7 +182,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 					if(sound.isplay())
 					sound.mystop();
 					sound.loadSound();
-					btnmuc.setLabel("音乐关");
+					button_music.setLabel("音乐关");
 					nor.setEnabled(true);
 					qin.setEnabled(true);
 					guang.setEnabled(true);
@@ -189,7 +192,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 					if(sound.isplay())
 					sound.mystop();
 					sound.loadSound();
-					btnmuc.setLabel("音乐关");
+					button_music.setLabel("音乐关");
 					nor.setEnabled(true);
 					qin.setEnabled(true);
 					guang.setEnabled(false);
@@ -199,7 +202,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 					if(sound.isplay())
 					sound.mystop();
 					sound.loadSound();
-					btnmuc.setLabel("音乐关");
+					button_music.setLabel("音乐关");
 					nor.setEnabled(true);
 					qin.setEnabled(true);
 					guang.setEnabled(true);
@@ -212,13 +215,13 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 	public void actionPerformed(ActionEvent e)
 	{
 		// TODO Auto-generated method stub
-		if(e.getSource()==btnrenew||e.getSource()==renew)
+		if(e.getSource()==button_renew||e.getSource()==renew)
 		{
 			panel.Tuixiangzi(panel.level);
 			panel.requestFocus();
 			panel.remove();
 		}
-		else if(e.getSource()==btnlast||e.getSource()==last)
+		else if(e.getSource()==button_last||e.getSource()==last)
 		{
 			panel.level--;
 			if(panel.level<1)
@@ -230,7 +233,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 			}
 			panel.remove();
 		}
-		else if(e.getSource()==btnnext||e.getSource()==next)
+		else if(e.getSource()==button_next||e.getSource()==next)
 		{
 			panel.level++;
 			if(panel.level>panel.maxlevel())
@@ -247,7 +250,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		{
 			JOptionPane.showMessageDialog(this, "JAVA推箱子v2.0版\n开发者：施超\nEmail:   shichaoling1@126.com\nQQ:   450400704");
 		}
-		else if(e.getSource()==btnchoose||e.getSource()==choose)
+		else if(e.getSource()==button_choose||e.getSource()==choose)
 		{
 			String lel=JOptionPane.showInputDialog(this,"请输入您要转到的关卡号：(1~50)");
 			panel.level=Integer.parseInt(lel);
@@ -261,33 +264,33 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 				}
 		}
 		
-		else if(e.getSource()==btnfirst)
+		else if(e.getSource()==button_first)
 		{
 			panel.level=1;
 			panel.Tuixiangzi(panel.level);
 			panel.requestFocus();
 			panel.remove();
 		}
-		else if(e.getSource()==btnover)
+		else if(e.getSource()==button_over)
 		{
 			panel.level=panel.maxlevel();
 			panel.Tuixiangzi(panel.level);
 			panel.requestFocus();
 			panel.remove();
 		}
-		else if(e.getSource()==btnmuc)
+		else if(e.getSource()==button_music)
 		{
 			if(sound.isplay())
 			{
-				sound.mystop();btnmuc.setLabel("音乐开");
+				sound.mystop();button_music.setLabel("音乐开");
 			}
 			else 
 			{
-				sound.loadSound();btnmuc.setLabel("音乐关");
+				sound.loadSound();button_music.setLabel("音乐关");
 			}
 			panel.requestFocus();
 		}
-		else if(e.getSource()==btnback||e.getSource()==back)
+		else if(e.getSource()==button_back||e.getSource()==back)
 		{
 			if(panel.isMystackEmpty())JOptionPane.showMessageDialog(this, "您还未移动！！！");
 			else
@@ -308,26 +311,26 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		}
 		else if(e.getSource()==nor)
 		{
-			jc.setSelectedIndex(0);
+			comBoBox.setSelectedIndex(0);
 		}
 		
 		else if(e.getSource()==qin)
 		{
-			jc.setSelectedIndex(1);
+			comBoBox.setSelectedIndex(1);
 		}
 		else if(e.getSource()==guang)
 		{
 			
-			jc.setSelectedIndex(3);
+			comBoBox.setSelectedIndex(3);
 			
 		}
 		else if(e.getSource()==eye)
 		{
-			jc.setSelectedIndex(4);
+			comBoBox.setSelectedIndex(4);
 		}
 		else if(e.getSource()==po)
 		{
-			jc.setSelectedIndex(2);
+			comBoBox.setSelectedIndex(2);
 		}
 	}
 }
