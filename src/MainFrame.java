@@ -46,9 +46,11 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		setResizable(false);
 		setLocation(300,20);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		Container cont=getContentPane();
 		cont.setLayout(null);
 		cont.setBackground(Color.black);
+		
 		Menu choice=new Menu("    选项");
 		choice.add(renew);
 		choice.add(last);
@@ -63,6 +65,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		choose.addActionListener(this);
 		exit.addActionListener(this);
 		back.addActionListener(this);
+		
 		Menu setmuc=new Menu("    设置音乐");
 		setmuc.add(nor);
 		setmuc.add(qin);
@@ -74,19 +77,24 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		po.addActionListener(this);
 		guang.addActionListener(this);
 		eye.addActionListener(this);
+		
 		Menu help=new Menu("    帮助");
 		help.add(about);
 		about.addActionListener(this);
+		
 		MenuBar bar=new MenuBar();
-		bar.add(choice);bar.add(setmuc);bar.add(help);
+		bar.add(choice);
+		bar.add(setmuc);
+		bar.add(help);
 		setMenuBar(bar);                                        
 
 		nor.setEnabled(false);
-		lb=new JLabel("JAVA推箱子v2.0版！！！",SwingConstants.CENTER);
+//		lb=new JLabel("JAVA推箱子v2.0版！！！",SwingConstants.CENTER);
 		lb2=new JLabel("更换音乐",SwingConstants.CENTER);
-		add(lb);add(lb2);
-		lb.setBounds(100,20,400,20);
-		lb.setForeground(Color.white);
+//		add(lb);
+		add(lb2);
+//		lb.setBounds(100,20,400,20);
+//		lb.setForeground(Color.white);
 		lb2.setBounds(625,500,55,20);
 		lb2.setForeground(Color.white);
 		btnrenew=new JButton("重来");
