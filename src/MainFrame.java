@@ -29,19 +29,19 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 	JButton button_over;
 	JButton button_music;
 	JButton button_back;
-	JComboBox comBoBox=new JComboBox();
-	MenuItem renew=new MenuItem("    重新开始");
-	MenuItem back=new MenuItem("    悔一步");
-	MenuItem last=new MenuItem("    上一关");
-	MenuItem next=new MenuItem("    下一关");
-	MenuItem choose=new MenuItem("    选关");
-	MenuItem exit=new MenuItem("    退出");
-	MenuItem qin=new MenuItem("    琴萧合奏");
-	MenuItem po=new MenuItem("    泡泡堂");
-	MenuItem guang=new MenuItem("    灌篮高手");
-	MenuItem nor=new MenuItem("    默认");
-	MenuItem eye=new MenuItem("    eyes on me");
-	MenuItem about=new MenuItem("    关于推箱子...");
+	JComboBox comBoBox = new JComboBox();
+	MenuItem renew = new MenuItem("    重新开始");
+	MenuItem back = new MenuItem("    悔一步");
+	MenuItem last = new MenuItem("    上一关");
+	MenuItem next = new MenuItem("    下一关");
+	MenuItem choose = new MenuItem("    选关");
+	MenuItem exit = new MenuItem("    退出");
+	MenuItem qin = new MenuItem("    琴萧合奏");
+	MenuItem po = new MenuItem("    泡泡堂");
+	MenuItem guang = new MenuItem("    灌篮高手");
+	MenuItem nor = new MenuItem("    默认");
+	MenuItem eye = new MenuItem("    eyes on me");
+	MenuItem about = new MenuItem("    关于推箱子...");
 	
 	
 	public MainFrame()

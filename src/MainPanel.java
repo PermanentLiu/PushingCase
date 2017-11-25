@@ -12,22 +12,26 @@ import javax.swing.JPanel;
 
 public class MainPanel extends JPanel implements KeyListener
 {
-	int max=50;
-	int[][] map,maptmp;
-	int manX,manY,boxnum;
+	public int level = 1;
+	int max = 50;
+	int[][] map, maptmp;
+	int manX;
+	int manY;
+	int boxnum;
+	int len = 30;
 	Image[] myImage;
 	ReadMap Levelmap;
 	ReadMap Levelmaptmp;
-	int len=30;
-	public int level=1;
 	Stack mystack=new Stack();
+	
 	public MainPanel()
 	{	
 		setBounds(15,50,600,600);
 		setBackground(Color.white);
 		addKeyListener(this);
-		myImage=new Image[10];
-		for(int i=0; i<10; i++)
+		myImage = new Image[10];
+		
+		for(int i = 0; i < 10; i++)
 		{
 		    myImage[i] = Toolkit.getDefaultToolkit().getImage("pic\\"+i+".gif");
 		}
@@ -37,48 +41,72 @@ public class MainPanel extends JPanel implements KeyListener
 
 	void Tuixiangzi(int i)
 	{
-		Levelmap=new ReadMap(i);
-		Levelmaptmp=new ReadMap(i);
-		map=Levelmap.getmap();
-		manX=Levelmap.getmanX();
-		manY=Levelmap.getmanY();
-		maptmp=Levelmaptmp.getmap();
+		Levelmap = new ReadMap(i);
+		Levelmaptmp = new ReadMap(i);
+		map = Levelmap.getmap();
+		manX = Levelmap.getmanX();
+		manY = Levelmap.getmanY();
+		maptmp = Levelmaptmp.getmap();
 		repaint();
 	}
-	int maxlevel(){return max;}
+	
+	int maxlevel()
+	{
+		return max;
+	}
 
 	public void paint(Graphics g)
 	{
-		for(int i=0; i<20; i++)
-			for(int j=0; j<20; j++)
+		for(int i = 0; i < 20; i++)
+		{
+			for(int j = 0; j < 20; j++)
 		    {
-			    g.drawImage(myImage[map[j][i]],i*len,j*len,this);
+			    g.drawImage(myImage[map[j][i]], i * len, j * len, this);
 			}		
+		}
 		g.setColor(new Color(0,0,0));
-		g.setFont(new Font("楷体_2312",Font.BOLD,30));
-		g.drawString("现在是第",150,40);
-		g.drawString(String.valueOf(level),310,40);
-		g.drawString("关",360,40);
+		g.setFont(new Font("楷体_2312", Font.BOLD, 30));
+		g.drawString("现在是第", 150, 40);
+		g.drawString(String.valueOf(level), 310, 40);
+		g.drawString("关", 360, 40);
 	}
 
 	public void keyPressed(KeyEvent e)
 	{
-		if(e.getKeyCode()==KeyEvent.VK_UP){moveup();}
-		if(e.getKeyCode()==KeyEvent.VK_DOWN){movedown();}
-		if(e.getKeyCode()==KeyEvent.VK_LEFT){moveleft();}
-		if(e.getKeyCode()==KeyEvent.VK_RIGHT){moveright();}
+		if(e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			moveup();
+		}
+		if(e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			movedown();
+		}
+		if(e.getKeyCode() == KeyEvent.VK_LEFT)
+		{
+			moveleft();
+		}
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+		{
+			moveright();
+		}
 		if(iswin())
 		{
-			if(level==max){JOptionPane.showMessageDialog(this, "恭喜您通过最后一关！！！");}
+			if(level==max)
+			{
+				JOptionPane.showMessageDialog(this, "恭喜您通过最后一关！！！");
+			}
 			else
 			{
-				String msg="恭喜您通过第"+level+"关!!!\n是否要进入下一关？";
-				int type=JOptionPane.YES_NO_OPTION;
-				String title="过关";
-				int choice=0;
-				choice=JOptionPane.showConfirmDialog(null,msg,title,type);
-				if(choice==1)System.exit(0);
-				else if(choice==0)
+				int type = JOptionPane.YES_NO_OPTION;
+				int choice = 0;
+				String msg = "恭喜您通过第"+level+"关!!!\n是否要进入下一关？";
+				String title = "过关";
+				choice = JOptionPane.showConfirmDialog(null, msg, title, type);
+				if(choice == 1)
+				{
+					System.exit(0);
+				}
+				else if(choice == 0)
 				{
 					level++;
 					Tuixiangzi(level);
@@ -90,157 +118,264 @@ public class MainPanel extends JPanel implements KeyListener
 	public void keyTyped(KeyEvent e){}
 	public void keyReleased(KeyEvent e){}
 
-	boolean isMystackEmpty(){return mystack.isEmpty();}
+	boolean isMystackEmpty()
+	{
+		return mystack.isEmpty();
+	}
 	
-	int  back(){return (Integer)mystack.pop();}
+	int  back()
+	{
+		return (Integer)mystack.pop();
+	}
 
-	void remove(){mystack.removeAllElements();}
+	void remove()
+	{
+		mystack.removeAllElements();
+	}
 	
 	void moveup()
 	{
-		if(map[manY-1][manX]==2||map[manY-1][manX]==4)
+		if(map[manY-1][manX] == 2 || map[manY-1][manX] == 4)
 		{
 			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+			{
 				map[manY][manX]=4;
-			else map[manY][manX]=2;
+			}
+			else
+			{
+				map[manY][manX]=2;
+			}
 			map[manY-1][manX]=8;
-			repaint();manY--;mystack.push(10);
+			repaint();
+			manY--;
+			mystack.push(10);
 		}
-		else if(map[manY-1][manX]==3)
+		else if(map[manY-1][manX] == 3)
 		{
-			if(map[manY-2][manX]==4)
+			if(map[manY-2][manX] == 4)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
 					map[manY][manX]=4;
-				else map[manY][manX]=2;
+				}
+				else
+				{
+					map[manY][manX]=2;
+				}
 				map[manY-1][manX]=8;
 				map[manY-2][manX]=9;
-				repaint();manY--;mystack.push(11);
+				repaint();
+				manY--;
+				mystack.push(11);
 			}
-			else if(map[manY-2][manX]==2)
+			else if(map[manY-2][manX] == 2)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
 					map[manY][manX]=4;
-				else map[manY][manX]=2;
+				}
+				else
+				{
+					map[manY][manX]=2;
+				}
 				map[manY-1][manX]=8;
 				map[manY-2][manX]=3;
-				repaint();manY--;mystack.push(11);
+				repaint();
+				manY--;
+				mystack.push(11);
 			}
-			else {map[manY][manX]=8;repaint();}
+			else 
+			{
+				map[manY][manX] = 8;
+				repaint();
+			}
 		}
-		else if(map[manY-1][manX]==9)
+		else if(map[manY-1][manX] == 9)
 		{
-			if(map[manY-2][manX]==4)
+			if(map[manY-2][manX] == 4)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
 					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY-1][manX]=8;
-				map[manY-2][manX]=9;
-				repaint();manY--;mystack.push(11);
+				}
+				else 
+				{
+					map[manY][manX]=2;
+				}
+				map[manY-1][manX] = 8;
+				map[manY-2][manX] = 9;
+				repaint();
+				manY--;
+				mystack.push(11);
 			}
-			else if(map[manY-2][manX]==2)
+			else if(map[manY-2][manX] == 2)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
 					map[manY][manX]=4;
-				else map[manY][manX]=2;
+				}
+				else
+				{
+					map[manY][manX]=2;
+				}
 				map[manY-1][manX]=8;
 				map[manY-2][manX]=3;
-				repaint();manY--;mystack.push(11);
+				repaint();
+				manY--;
+				mystack.push(11);
 			}
-			else {map[manY][manX]=8;repaint();}
+			else
+			{
+				map[manY][manX] = 8;
+				repaint();
+			}
 		}
-		if(map[manY-1][manX]==1)
+		if(map[manY-1][manX] == 1)
 		{
-			map[manY][manX]=8;repaint();
+			map[manY][manX]=8;
+			repaint();
 		}
 	}
 	
 	void backup(int t)
 	{
-		int n=t;
-		if(n==10)
+		int n = t;
+		if(n == 10)
 		{
-			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+			if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
 			{
-				map[manY][manX]=4;
+				map[manY][manX] = 4;
 			}
-			else map[manY][manX]=2;
+			else
+			{
+				map[manY][manX] = 2;
+			}
 		}
-		else if(n==11)
+		else if(n == 11)
 		{
-			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+			if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
 			{
-				map[manY][manX]=9;
+				map[manY][manX] = 9;
 			}
-			else map[manY][manX]=3;
-			if(maptmp[manY-1][manX]==4||maptmp[manY-1][manX]==9)
+			else
 			{
-				map[manY-1][manX]=4;
+				map[manY][manX]=3;
 			}
-			else map[manY-1][manX]=2;
+			if(maptmp[manY-1][manX] == 4 || maptmp[manY-1][manX] == 9)
+			{
+				map[manY-1][manX] = 4;
+			}
+			else
+			{
+				map[manY-1][manX] = 2;
+			}
 		}
-		map[manY+1][manX]=8;
-		repaint();manY++;
+		map[manY+1][manX] = 8;
+		repaint();
+		manY++;
 	}
 
 	void movedown()
 	{
-		if(map[manY+1][manX]==2||map[manY+1][manX]==4)
+		if(map[manY+1][manX] == 2 || map[manY+1][manX] == 4)
 		{
-			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-				map[manY][manX]=4;
-			else map[manY][manX]=2;
-			map[manY+1][manX]=5;
-			repaint();manY++;mystack.push(20);
+			if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+			{
+				map[manY][manX] = 4;
+			}
+			else 
+			{
+				map[manY][manX] = 2;
+			}
+			map[manY+1][manX] = 5;
+			repaint();
+			manY++;
+			mystack.push(20);
 		}
-		else if(map[manY+1][manX]==3)
+		else if(map[manY+1][manX] == 3)
 		{
-			if(map[manY+2][manX]==4)
+			if(map[manY+2][manX] == 4)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY+1][manX]=5;
-				map[manY+2][manX]=9;
-				repaint();manY++;mystack.push(21);
+				if(maptmp[manY][manX] ==4 || maptmp[manY][manX] == 9)
+				{
+					map[manY][manX] = 4;
+				}
+				else
+				{
+					map[manY][manX] = 2;
+				}
+				map[manY+1][manX] = 5;
+				map[manY+2][manX] = 9;
+				repaint();
+				manY++;
+				mystack.push(21);
 			}
-			else if(map[manY+2][manX]==2)
+			else if(map[manY+2][manX] == 2)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY+1][manX]=5;
-				map[manY+2][manX]=3;
-				repaint();manY++;mystack.push(21);
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
+					map[manY][manX] = 4;
+				}
+				else
+				{
+					map[manY][manX] = 2;
+				}
+				map[manY+1][manX] = 5;
+				map[manY+2][manX] = 3;
+				repaint();
+				manY++;
+				mystack.push(21);
 			}
-			else {map[manY][manX]=5;repaint();}
+			else 
+			{
+				map[manY][manX]=5;
+				repaint();
+			}
 		}
-		else if(map[manY+1][manX]==9)
+		else if(map[manY+1][manX] == 9)
 		{
-			if(map[manY+2][manX]==4)
+			if(map[manY+2][manX] == 4)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY+1][manX]=5;
-				map[manY+2][manX]=9;
-				repaint();manY++;mystack.push(21);
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
+					map[manY][manX] = 4;
+				}
+				else
+				{
+					map[manY][manX] = 2;
+				}
+				map[manY+1][manX] = 5;
+				map[manY+2][manX] = 9;
+				repaint();
+				manY++;
+				mystack.push(21);
 			}
-			else if(map[manY+2][manX]==2)
+			else if(map[manY+2][manX] == 2)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY+1][manX]=5;
-				map[manY+2][manX]=3;
-				repaint();manY++;mystack.push(21);
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
+					map[manY][manX] = 4;
+				}
+				else 
+				{
+					map[manY][manX] = 2;
+				}
+				map[manY+1][manX] = 5;
+				map[manY+2][manX] = 3;
+				repaint();
+				manY++;
+				mystack.push(21);
 			}
-			else {map[manY][manX]=5;repaint();}
+			else
+			{
+				map[manY][manX] = 5;
+				repaint();
+			}
 		}
-		else if(map[manY+1][manX]==1)
+		else if(map[manY+1][manX] == 1)
 		{
-			map[manY][manX]=5;repaint();
+			map[manY][manX]=5;
+			repaint();
 		}
 	}
 
