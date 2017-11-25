@@ -11,7 +11,7 @@ public class ReadMap
 	private int[][] mymap = new int[20][20];
 	FileReader r;
 	BufferedReader br;
-	String bb = "";
+	String bb= "";
 	int[] x;
 	int c = 0;
 	

@@ -47,13 +47,13 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 	public MainFrame()
 	{
 		super();
-		setSize(720,720);
+		setSize(720, 720);
 		setVisible(true);
 		setResizable(false);
-		setLocation(300,20);
+		setLocation(300, 20);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		Container container=getContentPane();
+		Container container = getContentPane();
 		container.setLayout(null);
 		container.setBackground(Color.black);
 		
@@ -116,23 +116,23 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		add(button_over);
 		add(button_music);
 		add(button_back);
-		button_renew.setBounds(625,100,80,30);
+		button_renew.setBounds(625, 100, 80, 30);
 		button_renew.addActionListener(this);
-		button_back.setBounds(625,150,80,30);
+		button_back.setBounds(625, 150, 80, 30);
 		button_back.addActionListener(this);
-		button_first.setBounds(625,200,80,30);
+		button_first.setBounds(625, 200, 80, 30);
 		button_first.addActionListener(this);
-		button_last.setBounds(625,250,80,30);
+		button_last.setBounds(625, 250, 80, 30);
 		button_last.addActionListener(this);
-		button_next.setBounds(625,300,80,30);
+		button_next.setBounds(625, 300, 80, 30);
 		button_next.addActionListener(this);
-		button_over.setBounds(625,350,80,30);
+		button_over.setBounds(625, 350, 80, 30);
 		button_over.addActionListener(this);
-		button_choose.setBounds(625,400,80,30);
+		button_choose.setBounds(625, 400, 80, 30);
 		button_choose.addActionListener(this);
-		button_music.setBounds(625,450,80,30);
+		button_music.setBounds(625, 450, 80, 30);
 		button_music.addActionListener(this);
-		comBoBox.setBounds(625,530,80,20);
+		comBoBox.setBounds(625, 530, 80, 20);
 		comBoBox.addItem("Ä¬ÈÏ");
 		comBoBox.addItem("ÇÙÏôºÏ×à");
 		comBoBox.addItem("ÅÝÅÝÌÃ");
