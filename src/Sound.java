@@ -6,25 +6,44 @@ import javax.sound.midi.Sequencer;
 
 public class Sound
 {
-	String path=new String("musics\\");
-	String  file=new String("nor.mid");
+	String path = new String("musics\\");
+	String  file = new String("nor.mid");
 	Sequence seq;
     Sequencer midi;
 	boolean sign;
+	
 	void loadSound()
 	{
-		try {
-            seq=MidiSystem.getSequence(new File(path+file));
-            midi=MidiSystem.getSequencer();
+		try 
+		{
+            seq = MidiSystem.getSequence(new File(path+file));
+            midi = MidiSystem.getSequencer();
             midi.open();
             midi.setSequence(seq);
 			midi.start();
 			midi.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
         }
-        catch (Exception ex) {ex.printStackTrace();}
-		sign=true;
+        catch (Exception ex) 
+		{
+        	ex.printStackTrace();
+        }
+		sign = true;
 	}
-	void mystop(){midi.stop();midi.close();sign=false;}
-	boolean isplay(){return sign;}
-	void setMusic(String e){file=e;}
+	
+	void mystop()
+	{
+		midi.stop();
+		midi.close();
+		sign = false;
+	}
+	
+	boolean isplay()
+	{
+		return sign;
+	}
+	
+	void setMusic(String e)
+	{
+		file = e;
+	}
 }
