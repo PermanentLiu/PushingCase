@@ -14,7 +14,8 @@ public class MainPanel extends JPanel implements KeyListener
 {
 	public int level = 1;
 	int max = 50;
-	int[][] map, maptmp;
+	int[][] map;
+	int[][] maptmp;
 	int manX;
 	int manY;
 	int boxnum;
@@ -26,14 +27,14 @@ public class MainPanel extends JPanel implements KeyListener
 	
 	public MainPanel()
 	{	
-		setBounds(15,50,600,600);
+		setBounds(15, 50, 600, 600);
 		setBackground(Color.white);
 		addKeyListener(this);
 		myImage = new Image[10];
 		
 		for(int i = 0; i < 10; i++)
 		{
-		    myImage[i] = Toolkit.getDefaultToolkit().getImage("pic\\"+i+".gif");
+		    myImage[i] = Toolkit.getDefaultToolkit().getImage("pic\\" + i + ".gif");
 		}
 		
 		setVisible(true);
@@ -115,6 +116,7 @@ public class MainPanel extends JPanel implements KeyListener
 			mystack.removeAllElements();
 		}
 	}
+	
 	public void keyTyped(KeyEvent e){}
 	public void keyReleased(KeyEvent e){}
 
@@ -137,15 +139,15 @@ public class MainPanel extends JPanel implements KeyListener
 	{
 		if(map[manY-1][manX] == 2 || map[manY-1][manX] == 4)
 		{
-			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+			if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
 			{
-				map[manY][manX]=4;
+				map[manY][manX] = 4;
 			}
 			else
 			{
-				map[manY][manX]=2;
+				map[manY][manX] = 2;
 			}
-			map[manY-1][manX]=8;
+			map[manY-1][manX] = 8;
 			repaint();
 			manY--;
 			mystack.push(10);
@@ -160,10 +162,10 @@ public class MainPanel extends JPanel implements KeyListener
 				}
 				else
 				{
-					map[manY][manX]=2;
+					map[manY][manX] = 2;
 				}
-				map[manY-1][manX]=8;
-				map[manY-2][manX]=9;
+				map[manY-1][manX] = 8;
+				map[manY-2][manX] = 9;
 				repaint();
 				manY--;
 				mystack.push(11);
@@ -172,14 +174,14 @@ public class MainPanel extends JPanel implements KeyListener
 			{
 				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
 				{
-					map[manY][manX]=4;
+					map[manY][manX] = 4;
 				}
 				else
 				{
-					map[manY][manX]=2;
+					map[manY][manX] = 2;
 				}
-				map[manY-1][manX]=8;
-				map[manY-2][manX]=3;
+				map[manY-1][manX] = 8;
+				map[manY-2][manX] = 3;
 				repaint();
 				manY--;
 				mystack.push(11);
@@ -196,11 +198,11 @@ public class MainPanel extends JPanel implements KeyListener
 			{
 				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
 				{
-					map[manY][manX]=4;
+					map[manY][manX] = 4;
 				}
 				else 
 				{
-					map[manY][manX]=2;
+					map[manY][manX] = 2;
 				}
 				map[manY-1][manX] = 8;
 				map[manY-2][manX] = 9;
@@ -212,14 +214,14 @@ public class MainPanel extends JPanel implements KeyListener
 			{
 				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
 				{
-					map[manY][manX]=4;
+					map[manY][manX] = 4;
 				}
 				else
 				{
-					map[manY][manX]=2;
+					map[manY][manX] = 2;
 				}
-				map[manY-1][manX]=8;
-				map[manY-2][manX]=3;
+				map[manY-1][manX] = 8;
+				map[manY-2][manX] = 3;
 				repaint();
 				manY--;
 				mystack.push(11);
@@ -232,7 +234,7 @@ public class MainPanel extends JPanel implements KeyListener
 		}
 		if(map[manY-1][manX] == 1)
 		{
-			map[manY][manX]=8;
+			map[manY][manX] = 8;
 			repaint();
 		}
 	}
@@ -259,7 +261,7 @@ public class MainPanel extends JPanel implements KeyListener
 			}
 			else
 			{
-				map[manY][manX]=3;
+				map[manY][manX] = 3;
 			}
 			if(maptmp[manY-1][manX] == 4 || maptmp[manY-1][manX] == 9)
 			{
@@ -704,9 +706,9 @@ public class MainPanel extends JPanel implements KeyListener
 	boolean iswin()
 	{
 		boolean num = false;
-		out:for(int i=0; i<20; i++)
+		out:for(int i = 0; i < 20; i++)
 		{
-			for(int j=0; j<20; j++)
+			for(int j = 0; j < 20; j++)
 			{
 				if(maptmp[i][j] == 4 || maptmp[i][j] == 9)
 				{
