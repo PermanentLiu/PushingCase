@@ -381,217 +381,346 @@ public class MainPanel extends JPanel implements KeyListener
 
 	void backdown(int t)
 	{
-		int n=t;
-		if(n==20)
+		int n = t;
+		if(n == 20)
 		{
-			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+			if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
 			{
-				map[manY][manX]=4;
+				map[manY][manX] = 4;
 			}
-			else map[manY][manX]=2;
+			else
+			{
+				map[manY][manX] = 2;
+			}
 		}
-		else if(n==21)
+		else if(n == 21)
 		{
-			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+			if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
 			{
-				map[manY][manX]=9;
+				map[manY][manX] = 9;
 			}
-			else map[manY][manX]=3;
-			if(maptmp[manY+1][manX]==4||maptmp[manY+1][manX]==9)
+			else
 			{
-				map[manY+1][manX]=4;
+				map[manY][manX] = 3;
 			}
-			else map[manY+1][manX]=2;
+			if(maptmp[manY+1][manX] == 4 || maptmp[manY+1][manX] == 9)
+			{
+				map[manY+1][manX] = 4;
+			}
+			else
+			{
+				map[manY+1][manX] = 2;
+			}
 		}
-		map[manY-1][manX]=5;
-		repaint();manY--;
+		map[manY-1][manX] = 5;
+		repaint();
+		manY--;
 	}
 
 	void moveleft()
 	{
-		if(map[manY][manX-1]==2||map[manY][manX-1]==4)
+		if(map[manY][manX-1] == 2 || map[manY][manX-1] == 4)
 		{
-			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-				map[manY][manX]=4;
-			else map[manY][manX]=2;
-			map[manY][manX-1]=6;			
-			repaint();manX--;mystack.push(30);
+			if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+			{
+				map[manY][manX] = 4;
+			}
+			else 
+			{
+				map[manY][manX] = 2;
+			}
+			map[manY][manX-1] = 6;			
+			repaint();
+			manX--;
+			mystack.push(30);
 		}
-		else if(map[manY][manX-1]==3)
+		else if(map[manY][manX-1] == 3)
 		{
-			if(map[manY][manX-2]==4)
+			if(map[manY][manX-2] == 4)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY][manX-1]=6;
-				map[manY][manX-2]=9;
-				repaint();manX--;mystack.push(31);
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
+					map[manY][manX] = 4;
+				}
+				else
+				{
+					map[manY][manX] = 2;
+				}
+				map[manY][manX-1] = 6;
+				map[manY][manX-2] = 9;
+				repaint();
+				manX--;
+				mystack.push(31);
 			}
-			else if(map[manY][manX-2]==2)
+			else if(map[manY][manX-2] == 2)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY][manX-1]=6;
-				map[manY][manX-2]=3;
-				repaint();manX--;mystack.push(31);
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
+					map[manY][manX] = 4;
+				}
+				else
+				{
+					map[manY][manX] = 2;
+				}
+				map[manY][manX-1] = 6;
+				map[manY][manX-2] = 3;
+				repaint();
+				manX--;
+				mystack.push(31);
 			}
-			else {map[manY][manX]=6;repaint();}
+			else
+			{
+				map[manY][manX] = 6;
+				repaint();
+			}
 		}
-		else if(map[manY][manX-1]==9)
+		else if(map[manY][manX-1] == 9)
 		{
-			if(map[manY][manX-2]==4)
+			if(map[manY][manX-2] == 4)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY][manX-1]=6;
-				map[manY][manX-2]=9;
-				repaint();manX--;mystack.push(31);
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
+					map[manY][manX] = 4;
+				}
+				else
+				{
+					map[manY][manX] = 2;
+				}
+				map[manY][manX-1] = 6;
+				map[manY][manX-2] = 9;
+				repaint();
+				manX--;
+				mystack.push(31);
 			}
-			else if(map[manY][manX-2]==2)
+			else if(map[manY][manX-2] == 2)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY][manX-1]=6;
-				map[manY][manX-2]=3;
-				repaint();manX--;mystack.push(31);
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
+					map[manY][manX] = 4;
+				}
+				else 
+				{
+					map[manY][manX] = 2;
+				}
+				map[manY][manX-1] = 6;
+				map[manY][manX-2] = 3;
+				repaint();
+				manX--;
+				mystack.push(31);
 			}
-			else {map[manY][manX]=6;repaint();}
+			else 
+			{
+				map[manY][manX] = 6;
+				repaint();
+			}
 		}
-		else if(map[manY][manX-1]==1)
+		else if(map[manY][manX-1] == 1)
 		{
-			map[manY][manX]=6;repaint();
+			map[manY][manX] = 6;
+			repaint();
 		}
 	}
 
 	void backleft(int t)
 	{
-		int n=t;
-		if(n==30)
+		int n = t;
+		if(n == 30)
 		{
-			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+			if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
 			{
-				map[manY][manX]=4;
+				map[manY][manX] = 4;
 			}
-			else map[manY][manX]=2;
+			else 
+			{
+				map[manY][manX] = 2;
+			}
 		}
-		else if(n==31)
+		else if(n == 31)
 		{
-			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+			if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
 			{
-				map[manY][manX]=9;
+				map[manY][manX] = 9;
 			}
-			else map[manY][manX]=3;
-			if(maptmp[manY][manX-1]==4||maptmp[manY][manX-1]==9)
+			else
 			{
-				map[manY][manX-1]=4;
+				map[manY][manX] = 3;
 			}
-			else map[manY][manX-1]=2;
+			if(maptmp[manY][manX-1] == 4 || maptmp[manY][manX-1] == 9)
+			{
+				map[manY][manX-1] = 4;
+			}
+			else
+			{
+				map[manY][manX-1] = 2;
+			}
 		}
-		map[manY][manX+1]=6;
-		repaint();manX++;
+		map[manY][manX+1] = 6;
+		repaint();
+		manX++;
 	}
 
 	void moveright()
 	{
-		if(map[manY][manX+1]==2||map[manY][manX+1]==4)
+		if(map[manY][manX+1] == 2 || map[manY][manX+1] == 4)
 		{			
-			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-				map[manY][manX]=4;
-			else map[manY][manX]=2;
-			map[manY][manX+1]=7;			
-			repaint();manX++;mystack.push(40);
+			if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+			{
+				map[manY][manX] = 4;
+			}
+			else
+			{
+				map[manY][manX] = 2;
+			}
+			map[manY][manX+1] = 7;			
+			repaint();
+			manX++;
+			mystack.push(40);
 		}
-		else if(map[manY][manX+1]==3)
+		else if(map[manY][manX+1] == 3)
 		{
-			if(map[manY][manX+2]==4)
+			if(map[manY][manX+2] == 4)
 			{
-				if(maptmp[manY][manX]==4)
-					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY][manX+1]=7;
-				map[manY][manX+2]=9;
-				repaint();manX++;mystack.push(41);
+				if(maptmp[manY][manX] == 4)
+				{
+					map[manY][manX] = 4;
+				}
+				else
+				{
+					map[manY][manX] = 2;
+				}
+				map[manY][manX+1] = 7;
+				map[manY][manX+2] = 9;
+				repaint();
+				manX++;
+				mystack.push(41);
 			}
-			else if(map[manY][manX+2]==2)
+			else if(map[manY][manX+2] == 2)
 			{
-				if(maptmp[manY][manX]==4)
-					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY][manX+1]=7;
-				map[manY][manX+2]=3;
-				repaint();manX++;mystack.push(41);
+				if(maptmp[manY][manX] == 4)
+				{
+					map[manY][manX] = 4;
+				}
+				else
+				{
+					map[manY][manX] = 2;
+				}
+				map[manY][manX+1] = 7;
+				map[manY][manX+2] = 3;
+				repaint();
+				manX++;
+				mystack.push(41);
 			}
-			else {map[manY][manX]=7;repaint();}
+			else
+			{
+				map[manY][manX] = 7;
+				repaint();
+			}
 		}
-		else if(map[manY][manX+1]==9)
+		else if(map[manY][manX+1] == 9)
 		{
-			if(map[manY][manX+2]==4)
+			if(map[manY][manX+2] == 4)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY][manX+1]=7;
-				map[manY][manX+2]=9;
-				repaint();manX++;mystack.push(41);
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
+					map[manY][manX] = 4;
+				}
+				else
+				{
+					map[manY][manX] = 2;
+				}
+				map[manY][manX+1] = 7;
+				map[manY][manX+2] = 9;
+				repaint();
+				manX++;
+				mystack.push(41);
 			}
-			else if(map[manY][manX+2]==2)
+			else if(map[manY][manX+2] == 2)
 			{
-				if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
-					map[manY][manX]=4;
-				else map[manY][manX]=2;
-				map[manY][manX+1]=7;
-				map[manY][manX+2]=3;
-				repaint();manX++;mystack.push(41);
+				if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
+				{
+					map[manY][manX] = 4;
+				}
+				else
+				{
+					map[manY][manX] = 2;
+				}
+				map[manY][manX+1] = 7;
+				map[manY][manX+2] = 3;
+				repaint();
+				manX++;
+				mystack.push(41);
 			}
-			else {map[manY][manX]=7;repaint();}
+			else 
+			{
+				map[manY][manX]=7;
+				repaint();
+			}
 		}
-		else if(map[manY][manX+1]==1)
+		else if(map[manY][manX+1] == 1)
 		{
-			map[manY][manX]=7;repaint();
+			map[manY][manX]=7;
+			repaint();
 		}
 	}
 
 	void backright(int t)
 	{
-		int n=t;
-		if(n==40)
+		int n = t;
+		if(n == 40)
 		{
-			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+			if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
 			{
-				map[manY][manX]=4;
+				map[manY][manX] = 4;
 			}
-			else map[manY][manX]=2;
+			else
+			{
+				map[manY][manX] = 2;
+			}
 		}
-		else if(n==41)
+		else if(n == 41)
 		{
-			if(maptmp[manY][manX]==4||maptmp[manY][manX]==9)
+			if(maptmp[manY][manX] == 4 || maptmp[manY][manX] == 9)
 			{
-				map[manY][manX]=9;
+				map[manY][manX] = 9;
 			}
-			else map[manY][manX]=3;
-			if(maptmp[manY][manX+1]==4||maptmp[manY][manX+1]==9)
+			else
 			{
-				map[manY][manX+1]=4;
+				map[manY][manX] = 3;
 			}
-			else map[manY][manX+1]=2;
+			if(maptmp[manY][manX+1] == 4 || maptmp[manY][manX+1] == 9)
+			{
+				map[manY][manX+1] = 4;
+			}
+			else
+			{
+				map[manY][manX+1] = 2;
+			}
 		}
-		map[manY][manX-1]=7;
-		repaint();manX--;
+		map[manY][manX-1] = 7;
+		repaint();
+		manX--;
 	}
 
 	boolean iswin()
 	{
-		boolean num=false;
+		boolean num = false;
 		out:for(int i=0; i<20; i++)
-			for(int j=0; j<20; j++)
 		{
-			if(maptmp[i][j]==4||maptmp[i][j]==9)
-				if(map[i][j]==9)num=true;
-			    else {num=false;break out;}
+			for(int j=0; j<20; j++)
+			{
+				if(maptmp[i][j] == 4 || maptmp[i][j] == 9)
+				{
+					if(map[i][j] == 9)
+					{
+						num = true;
+					}
+				    else 
+				    {
+				    	num=false;
+				    	break out;
+				    }
+				}
+			}	
 		}
 		return num;
 	}
