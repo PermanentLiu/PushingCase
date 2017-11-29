@@ -46,7 +46,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 	
 	public MainFrame()
 	{
-		super();
+		super();//初始化frame
 		setSize(720, 720);
 		setVisible(true);
 		setResizable(false);
@@ -139,6 +139,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		comBoBox.addItem("灌篮高手");
 		comBoBox.addItem("eyes on me");
 		comBoBox.addItemListener(this);
+		
 		container.add(comBoBox);
 		sound = new Sound();
 		sound.loadSound();
