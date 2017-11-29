@@ -53,11 +53,11 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		setLocation(300, 20);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		Container container = getContentPane();
+		Container container = getContentPane();//初始化容器，容器：添加控件用的
 		container.setLayout(null);
 		container.setBackground(Color.black);
 		
-		Menu choice=new Menu("    选项");
+		Menu choice = new Menu("    选项");
 		choice.add(renew);
 		choice.add(last);
 		choice.add(next);
@@ -72,7 +72,7 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		exit.addActionListener(this);
 		back.addActionListener(this);
 		
-		Menu setMusic=new Menu("    设置音乐");
+		Menu setMusic = new Menu("    设置音乐");
 		setMusic.add(nor);
 		setMusic.add(qin);
 		setMusic.add(po);
@@ -84,11 +84,11 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		guang.addActionListener(this);
 		eye.addActionListener(this);
 		
-		Menu help=new Menu("    帮助");
+		Menu help = new Menu("    帮助");
 		help.add(about);
 		about.addActionListener(this);
 		
-		MenuBar bar=new MenuBar();
+		MenuBar bar = new MenuBar();
 		bar.add(choice);
 		bar.add(setMusic);
 		bar.add(help);
@@ -96,18 +96,18 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 
 		nor.setEnabled(false);
 
-		label=new JLabel("更换音乐",SwingConstants.CENTER);
+		label = new JLabel("更换音乐",SwingConstants.CENTER);
 		add(label);
 		label.setBounds(625,500,55,20);
 		label.setForeground(Color.white);
-		button_renew=new JButton("重来");
-		button_back=new JButton("悔一步");
-		button_last=new JButton("上一关");
-		button_next=new JButton("下一关");
-		button_choose=new JButton("选关");
-		button_first=new JButton("第１关");
-		button_over=new JButton("最终关");
-		button_music=new JButton("音乐关");
+		button_renew = new JButton("重来");
+		button_back = new JButton("悔一步");
+		button_last = new JButton("上一关");
+		button_next = new JButton("下一关");
+		button_choose = new JButton("选关");
+		button_first = new JButton("第１关");
+		button_over = new JButton("最终关");
+		button_music = new JButton("音乐关");
 		add(button_renew);
 		add(button_last);
 		add(button_next);
@@ -140,9 +140,9 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		comBoBox.addItem("eyes on me");
 		comBoBox.addItemListener(this);
 		container.add(comBoBox);
-		sound=new Sound();
+		sound = new Sound();
 		sound.loadSound();
-		panel=new MainPanel();
+		panel = new MainPanel();
 		add(panel);
 		panel.Tuixiangzi(panel.level);
 		panel.requestFocus();
