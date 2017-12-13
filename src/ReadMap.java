@@ -20,6 +20,7 @@ public class ReadMap
 	{
 		level = k;
 		String s;
+		
 		try
 		{
 			File f = new File("maps\\" + level + ".map");
@@ -47,16 +48,16 @@ public class ReadMap
 		int len = bb.length();
 		int[] x = new int[len];
 		
-		for(int i = 0; i < bb.length(); i++)
+		for (int i = 0; i < bb.length(); i++)
 		{
 			x[i] = d[i] - 48;
 		}
-		for(int i = 0; i < 20; i++)
-		{
-			for(int j = 0; j < 20; j++)
+		for (int i = 0; i < 20; i++)
+		{ 
+			for (int j = 0; j < 20; j++)
 		    {
 				mymap[i][j] = x[c];
-		        if(mymap[i][j] == 5)
+		        if (mymap[i][j] == 5)
 		        {
 					mx = j;
 					my = i;

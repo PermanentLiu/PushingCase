@@ -1,11 +1,12 @@
 import java.io.File;
+import java.util.LinkedList;
 
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Sequencer;
 
 public class Sound
-{
+{	
 	String path = new String("musics\\");
 	String  file = new String("nor.mid");
 	Sequence seq;
@@ -47,3 +48,4 @@ public class Sound
 		file = e;
 	}
 }
+
