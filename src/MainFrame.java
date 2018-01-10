@@ -1,4 +1,4 @@
-import java.awt.Color;
+import java.awt.Color; 
 import java.awt.Container;
 import java.awt.Menu;
 import java.awt.MenuBar;
@@ -156,10 +156,10 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 	public void itemStateChanged(ItemEvent arg0)
 	{
 		// TODO Auto-generated method stub
-		int no=comBoBox.getSelectedIndex();
+		int no = comBoBox.getSelectedIndex();
 		switch(no)
 		{
-			case 0:sound.setMusic("nor.mid");
+			case 0:  sound.setMusic("nor.mid");
 					 if(sound.isplay())
 					 sound.mystop();
 					 sound.loadSound();
@@ -168,8 +168,10 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 					 qin.setEnabled(true);
 					 guang.setEnabled(true);
 					 eye.setEnabled(true);
-					 po.setEnabled(true);panel.requestFocus();break;
-			case 1:sound.setMusic("qin.mid");
+					 po.setEnabled(true);
+					 panel.requestFocus();
+					 break;
+			case 1:  sound.setMusic("qin.mid");
 					 if(sound.isplay())
 					 sound.mystop();
 					 sound.loadSound();
@@ -178,8 +180,10 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 					 qin.setEnabled(false);
 					 guang.setEnabled(true);
 					 eye.setEnabled(true);
-					 po.setEnabled(true);panel.requestFocus();break;
-			case 2:sound.setMusic("popo.mid");
+					 po.setEnabled(true);
+					 panel.requestFocus();
+					 break;
+			case 2: sound.setMusic("popo.mid");
 					if(sound.isplay())
 					sound.mystop();
 					sound.loadSound();
@@ -188,8 +192,10 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 					qin.setEnabled(true);
 					guang.setEnabled(true);
 					eye.setEnabled(true);
-					po.setEnabled(false);panel.requestFocus();break;
-			case 3:sound.setMusic("guang.mid");
+					po.setEnabled(false);
+					panel.requestFocus();
+					break;
+			case 3: sound.setMusic("guang.mid");
 					if(sound.isplay())
 					sound.mystop();
 					sound.loadSound();
@@ -198,8 +204,10 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 					qin.setEnabled(true);
 					guang.setEnabled(false);
 					eye.setEnabled(true);
-					po.setEnabled(true);panel.requestFocus();break;
-			case 4:sound.setMusic("eyes on me.mid");
+					po.setEnabled(true);
+					panel.requestFocus();
+					break;
+			case 4: sound.setMusic("eyes on me.mid");
 					if(sound.isplay())
 					sound.mystop();
 					sound.loadSound();
@@ -208,7 +216,9 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 					qin.setEnabled(true);
 					guang.setEnabled(true);
 					eye.setEnabled(false);
-					po.setEnabled(true);panel.requestFocus();break;
+					po.setEnabled(true);
+					panel.requestFocus();
+					break;
 		}
 	}
 
@@ -249,20 +259,22 @@ public class MainFrame extends JFrame implements ActionListener, ItemListener
 		else if(e.getSource()==exit)System.exit(0);
 		else if(e.getSource()==about)
 		{
-			JOptionPane.showMessageDialog(this, "JAVA推箱子v2.0版\n开发者：施超\nEmail:   shichaoling1@126.com\nQQ:   450400704");
+			JOptionPane.showMessageDialog(this, "操作说明：上下左右键操控人物，其他高级功能均在面板右侧\n");
 		}
 		else if(e.getSource()==button_choose||e.getSource()==choose)
 		{
-			String lel=JOptionPane.showInputDialog(this,"请输入您要转到的关卡号：(1~50)");
+			String lel=JOptionPane.showInputDialog(this,"请输入您要转到的关卡号：(1~10)");
 			panel.level=Integer.parseInt(lel);
 			panel.remove();
 			if(panel.level>panel.maxlevel()||panel.level<1)
-			{JOptionPane.showMessageDialog(this, "没有这一关！！！");panel.requestFocus();}
+			{
+				JOptionPane.showMessageDialog(this, "没有这一关！！！");panel.requestFocus();
+			}
 			else
-				{
+			{
 				panel.Tuixiangzi(panel.level);
 				panel.requestFocus();
-				}
+			}
 		}
 		
 		else if(e.getSource()==button_first)

@@ -24,8 +24,8 @@ public class ReadMap
 		try
 		{
 			File f = new File("maps\\" + level + ".map");
-			r = new FileReader(f);
-			br = new BufferedReader(r);
+			r = new FileReader(f);//字符流
+			br = new BufferedReader(r);//文件流
 		}
 		catch (IOException e)
 		{
@@ -51,15 +51,16 @@ public class ReadMap
 		for (int i = 0; i < bb.length(); i++)
 		{
 			x[i] = d[i] - 48;
+			
 		}
 		for (int i = 0; i < 20; i++)
 		{ 
 			for (int j = 0; j < 20; j++)
 		    {
 				mymap[i][j] = x[c];
-		        if (mymap[i][j] == 5)
+		        if (mymap[i][j] == 5)//人物
 		        {
-					mx = j;
+					mx = j;//当前要操作的坐标
 					my = i;
 		        }
 		        c++;

@@ -10,7 +10,7 @@ public class Sound
 	String path = new String("musics\\");
 	String  file = new String("nor.mid");
 	Sequence seq;
-    Sequencer midi;
+    Sequencer midi;//定义播放器
 	boolean sign;
 	
 	void loadSound()
@@ -18,7 +18,7 @@ public class Sound
 		try 
 		{
             seq = MidiSystem.getSequence(new File(path+file));
-            midi = MidiSystem.getSequencer();
+            midi = MidiSystem.getSequencer();//加载默认播放器
             midi.open();
             midi.setSequence(seq);
 			midi.start();
@@ -26,12 +26,12 @@ public class Sound
         }
         catch (Exception ex) 
 		{
-        	ex.printStackTrace();
+        	ex.printStackTrace();//异常处理
         }
 		sign = true;
 	}
 	
-	void mystop()
+	void mystop()//停止播放
 	{
 		midi.stop();
 		midi.close();

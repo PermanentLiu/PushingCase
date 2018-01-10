@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 public class MainPanel extends JPanel implements KeyListener
 {
 	public int level = 1;
-	int max = 50;
+	int max = 10;
 	int[][] map;
 	int[][] maptmp;
 	int manX;
@@ -718,7 +718,7 @@ public class MainPanel extends JPanel implements KeyListener
 					}
 				    else 
 				    {
-				    	num=false;
+				    	num = false;
 				    	break out;
 				    }
 				}
